@@ -54,6 +54,7 @@ def generate_video(prompt):
     )
 
     save_path = f"/runpod-volume/output/generated_{datetime.now().strftime('%Y%m%d_%H%M%S')}.mp4"
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
     logging.info(f"Saving video to {save_path}")
     cache_video(
         tensor=video[None],
